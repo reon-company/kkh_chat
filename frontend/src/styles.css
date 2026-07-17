@@ -1,0 +1,131 @@
+:root {
+  --teal: #1f4b43;
+  --ivory: #faf8f4;
+  --charcoal: #2b2a28;
+  --coral: #e8895a;
+  --line: #dad5c8;
+  --muted: #6b6459;
+  --muted-2: #9a9488;
+  --error: #b4442e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px;
+}
+
+.page-inner {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px);
+}
+
+.chat-header {
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--teal);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+h1.display {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.chat-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 12px;
+}
+
+.bubble {
+  max-width: 80%;
+  padding: 11px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.bubble.assistant {
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 4px;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: var(--teal);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.bubble.loading {
+  color: var(--muted-2);
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+}
+
+.chat-send {
+  padding: 0 18px;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chat-send:disabled {
+  background: var(--muted-2);
+  cursor: not-allowed;
+}
+
+.error-text {
+  color: var(--error);
+  font-size: 13px;
+  margin: 8px 0 0;
+}
