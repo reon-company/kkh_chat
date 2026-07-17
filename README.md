@@ -49,7 +49,7 @@ npm run dev
 - **프론트엔드**: Vercel (`reonai/kkh-chat` 프로젝트) → https://chat.sonamu.my. `VITE_API_URL=https://chat-api.sonamu.my/api` 환경변수 설정됨.
 - **백엔드**: service1과 같은 AWS Lightsail 인스턴스(`~/chat`)에 systemd 서비스(`service2-backend`, 포트 4001)로 상시 실행, nginx + Let's Encrypt로 https://chat-api.sonamu.my 서빙. `SERVICE1_API_URL`은 같은 서버 내부 통신이라 `http://localhost:4000/api` 사용.
 - **주의**: 프론트(`chat`)와 백엔드(`chat-api`) 서브도메인을 헷갈리지 말 것 — `chat.sonamu.my`는 Vercel(A레코드 `76.76.21.21`), `chat-api.sonamu.my`는 Lightsail(A레코드 `43.201.119.36`).
-- **재배포**: GitHub push → 서버에서 `cd ~/chat && git pull && sudo systemctl restart service2-backend` (프론트는 Vercel 자동 배포).
+- **재배포**: 백엔드는 GitHub push 후 서버에서 `cd ~/chat && git pull && sudo systemctl restart service2-backend`. **프론트는 GitHub 자동 배포가 연결되어 있지 않음** (Vercel 프로젝트를 CLI로 생성해서 GitHub App 연동이 안 됨) — `frontend/`에서 `vercel deploy --prod`로 수동 배포 필요. (kkh-260624는 대시보드로 만들어져서 자동 배포되는 것과 다름.)
 
 ## 환경변수 요약
 
